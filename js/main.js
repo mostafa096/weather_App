@@ -161,7 +161,7 @@ function displayLocation(forcast) {
 (async function onloadDisplay() {
   try {
     let forcastData = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}%20&q=cairo&days=3&aqi=yes&alerts=no`
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}%20&q=cairo&days=3&aqi=yes&alerts=no`
     );
     if (forcastData.ok && forcastData.status == 200) {
       let result = await forcastData.json();
