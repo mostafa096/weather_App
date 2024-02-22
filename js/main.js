@@ -73,7 +73,7 @@ function displayLocation(forcast) {
               <div class="details mb-2">
                 <span
                   ><img
-                    src="/images/icon-umberella.png"
+                    src="images/icon-umberella.png"
                     alt="picture"
                   />
                   20%
@@ -81,7 +81,7 @@ function displayLocation(forcast) {
                 <span
                   ><img
                     class="ms-3"
-                    src="/images/icon-wind.png"
+                    src="images/icon-wind.png"
                     alt="picture"
                   />
                   18km/h
@@ -89,7 +89,7 @@ function displayLocation(forcast) {
                 <span
                   ><img
                     class="ms-3"
-                    src="/images/icon-compass.png"
+                    src="images/icon-compass.png"
                     alt="picture"
                   />
                   East
