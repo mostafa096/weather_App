@@ -34,7 +34,6 @@ searchInput.addEventListener("input", async function () {
     );
     if (forcastData.ok && forcastData.status == 200) {
       let result = await forcastData.json();
-      console.log(result);
       displayLocation(result);
     }
   } catch (err) {
@@ -44,12 +43,17 @@ searchInput.addEventListener("input", async function () {
 
 function displayLocation(forcast) {
   // to get local time
-  let date = new Date(forcast.location.localtime);
+
+  let todayDate = new Date(forcast.forecast.forecastday[0].date);
+  let tomorrowDate = new Date(forcast.forecast.forecastday[1].date);
+  let aftertomorrow = new Date(forcast.forecast.forecastday[2].date);
 
   let tempToday = `<div class="col-lg-4 today">
             <div class="forcast-head py-2 d-flex justify-content-between">
-              <span>${days[date.getDay()]}</span>
-              <span>${date.getDate()}${monthNames[date.getMonth()]}</span>
+              <span>${days[todayDate.getDay()]}</span>
+              <span>${todayDate.getDate()}${
+    monthNames[todayDate.getMonth()]
+  }</span>
             </div>
             <div class="forcastbody d-flex flex-column align-items-center align-items-lg-start al p-3">
               <div class="location mt-2 fs-5">${forcast.location.name}</div>
@@ -101,7 +105,7 @@ function displayLocation(forcast) {
           
           `;
   let tempForcast = `<div class="col-lg-4 middle-col tomorrow text-center">
-            <div class="forcast-head py-2">${days[date.getDay() + 1]}</div>
+            <div class="forcast-head py-2">${days[tomorrowDate.getDay()]}</div>
             <div class="forcastbody py-4">
               <div class="temp-logo">
                 <img
@@ -130,7 +134,7 @@ function displayLocation(forcast) {
 
           <div class="col-lg-4 tomorrow text-center">
 
-            <div class="forcast-head py-2">${days[date.getDay() + 2]}</div>
+            <div class="forcast-head py-2">${days[aftertomorrow.getDay()]}</div>
             <div class="forcastbody py-4">
               <div class="temp-logo">
                 <img
